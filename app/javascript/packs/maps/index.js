@@ -8,6 +8,8 @@ document.addEventListener("turbolinks:load", function() {
   var apartments = JSON.parse(document.querySelector("#map").dataset.apartments);
   window.apartments = apartments;
 
+  var bounds = new google.maps.LatLngBounds();
+
   apartments.forEach(function(apartment){
     if (apartment.latitude && apartment.longitude) {
       var marker = map.addMarker({
@@ -18,6 +20,9 @@ document.addEventListener("turbolinks:load", function() {
           content: `<p><a href='/apartments/${apartment.id}'>${apartment.address}</a></p>`
         }
       });
+
+      bounds.extend(marker.position);
     }
   });
+  map.fitBounds(bounds)
 })
