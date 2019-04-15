@@ -2,6 +2,8 @@
 
 <h1>Apartments</h1>
 
+<%= tag.div nil, id: 'map', data: {apartments: @apartments.to_json(methods:[:address])} %>
+
 <table>
   <thead>
     <tr>
