@@ -4,6 +4,8 @@
 
 <%= tag.div nil, id: 'map', data: {apartments: @apartments.to_json(methods:[:address])} %>
 
+<%= paginate @apartments %>
+
 <table>
   <thead>
     <tr>
