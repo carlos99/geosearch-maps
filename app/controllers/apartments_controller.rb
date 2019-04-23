@@ -4,7 +4,16 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.page(params[:page]).per(20)
+    @apartments = if params[:l]
+                  sw_lat, sw_lng, ne_lat, ne_lng = params[:l].split(",")
+                  center = Geocoder::Calculations.geographic_center([[sw_lat, sw_lng], [ne_lat, ne_lng]])
+                  Apartment.near(center)
+                elsif params[:near]
+                    Apartment.near(params[:near])
+                  else
+                    Apartment.all
+                  end
+    @apartments = @apartments.page(params[:page]).per(10)
   end
 
   # GET /apartments/1

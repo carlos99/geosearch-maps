@@ -2,9 +2,14 @@
 
 <h1>Apartments</h1>
 
-
+<%= form_with(url: apartments_path, local: true, method: :get) do |f| %>
+  <%= f.text_field :near %>
+  <%= f.submit "Search" %>
+<% end %>
 
 <%= tag.div nil, id: 'map', data: {apartments: @apartments.to_json(methods:[:address])} %>
+
+<%= link_to "Redo search in this area", "#", id: "redo-search" %>
 
 <%= paginate @apartments %>
 

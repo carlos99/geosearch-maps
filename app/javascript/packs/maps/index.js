@@ -24,5 +24,14 @@ document.addEventListener("turbolinks:load", function() {
       bounds.extend(marker.position);
     }
   });
-  map.fitBounds(bounds)
-})
+  map.fitZoom();
+
+  document.querySelector("#redo-search").addEventListener("click", function(e){
+    e.preventDefault();
+
+    var bounds = map.getBounds();
+    var location = bounds.getSouthWest().toUrlValue() + "," + bounds.getNorthEast().toUrlValue();
+
+    Turbolinks.visit(`/apartments?l=${location}`);
+  });
+});
