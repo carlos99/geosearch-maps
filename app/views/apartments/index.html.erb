@@ -7,7 +7,7 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<%= tag.div nil, id: 'map', data: {apartments: @apartments.to_json(methods:[:address])} %>
+<%= tag.div nil, id: 'map', data: {apartments: @apartments.to_json(methods:[:address]), l: params[:l]} %>
 
 <%= link_to "Redo search in this area", "#", id: "redo-search" %>
 
