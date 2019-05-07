@@ -15,7 +15,7 @@ class ApartmentsController < ApplicationController
                   else
                     Apartment.all
                   end
-    @apartments = @apartments.page(params[:page]).per(5)
+    @apartments = @apartments.page(params[:page]).per(15)
   end
 
   # GET /apartments/1
