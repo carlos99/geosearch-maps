@@ -2,25 +2,25 @@ development:
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV['dev_db_name'] || Rails.application.credentials.dev_db_name %>
+  database: <%= ENV['development_db_name'] %>
   pool: 5
-  username: <%= ENV['dev_db_username'] || Rails.application.credentials.dev_db_username %>
-  password: <%= ENV['dev_db_password'] || Rails.application.credentials.dev_db_password %>
+  username: <%= ENV['development_db_username'] %>
+  password: <%= ENV['development_db_password'] %>
 
 test:
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database:  <%= ENV['test_db_name'] || Rails.application.credentials.test_db_name %>
+  database:  <%= ENV['test_db_name'] %>
   pool: 5
-  username: <%= ENV['test_db_username'] || Rails.application.credentials.test_db_username %>
-  password:  <%= ENV['test_db_password'] || Rails.application.credentials.test_db_password %>
+  username: <%= ENV['test_db_username'] %>
+  password:  <%= ENV['test_db_password'] %>
 
 production:
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database:  <%= ENV['production_db_name'] || Rails.application.credentials.production_db_name %>
+  database:  <%= ENV['production_db_name'] %>
   pool: 5
-  username: <%= ENV['production_db_username'] || Rails.application.credentials.production_db_username %>
-  password:  <%= ENV['production_db_password'] || Rails.application.credentials.production_db_password %>
+  username: <%= ENV['production_db_username'] %>
+  password:  <%= ENV['production_db_password'] %>
