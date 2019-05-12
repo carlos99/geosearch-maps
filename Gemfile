@@ -65,4 +65,4 @@ gem 'geocoder'
 gem 'webpacker'
 gem 'kaminari'
 gem 'jquery-rails'
-#gem 'bootstrap', '~> 4.1.3'
+gem "figaro"
